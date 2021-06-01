@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html dir="rtl">
+	<head>
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" / >
+	<link rel="icon" type="image/gif" href="img/ico.gif" />
+		<meta charset="UTF-8">
+		<title>صاران|محیط کاربری</title>
+		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+		<link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
+		<link href="/style.css" rel="stylesheet" type="text/css" />
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="js/html5shiv.js"></script>
+		  <script src="js/respond.min.js"></script>
+		<![endif]-->
+				
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-migrate-1.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/twsh.js" type="text/javascript" charset="utf-8"></script>
+		<script src="css/twsh.css" type="text/javascript" charset="utf-8"></script>
+		<script src="js/AJAX.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ajax2.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/ajax2.js" ></script>
+<script src="js/jquery-ui-1.8.17.min.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.23.custom.css" />
+
+<script type="text/javascript" src="js/jquery.tinymce.js"></script>
+<script type="text/javascript" src="js/tiny_mce.js"></script> 
+
+<script type="text/javascript">
+(function($){
+	$(document).ready(function() {
+		tinyMCE.settings = {
+				// General options
+				language : "fa",
+				directionality: "rtl",
+				theme : "advanced",
+				plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist",
+				skin : "o2k7",
+				elements : "elm2",
+				skin_variant : "silver",
+				paste_auto_cleanup_on_paste : true,
+				paste_convert_headers_to_strong : false,
+				paste_strip_class_attributes : "all",
+				paste_retain_style_properties : "all",
+				paste_remove_spans : false,
+				paste_remove_styles : false,
+				// Theme options
+									theme_advanced_toolbar_location : "top",
+				theme_advanced_toolbar_align : "right",
+				theme_advanced_statusbar_location : "bottom",
+				theme_advanced_resizing : true,
+				// Example content CSS (should be your site CSS)
+				// Drop lists for link/image/media/template dialogs
+				template_external_list_url : "lists/template_list.js",
+				external_link_list_url : "lists/link_list.js",
+				external_image_list_url : "lists/image_list.js",
+				media_external_list_url : "lists/media_list.js",
+				verify_html: true,
+				preformatted : true,
+				valid_elements : '*[*]',
+				valid_children : "+body[style],+body[script],+body[html]",
+				extended_valid_elements : "script[src|type|language]",
+				cleanup: false,
+				relative_urls : false,
+				forced_root_block: false,
+				force_p_newlines: false,
+				force_br_newlines: true,
+				width: "98%"
+								// Replace values for the template plugin
+		};	
+	});
+})(jQuery);					  
+</script>
+<script type="text/javascript" src="ajax/jquery.js"></script>
+<script type="text/javascript">
+function reload() {
+    $.get('data/up_time.html', function(data) {
+        $("#up_time").html(data);
+    });
+    $.get('data/left_time.html', function(data) {
+        $("#left_time").html(data);
+    });
+    $.get('data/download/status.html', function(data) {
+        $("#download_size").html(data);
+    });
+    $.get('data/upload/status.html', function(data) {
+        $("#upload_size").html(data);
+    });
+}
+$(document).ready(function() {
+    reload();
+    window.setInterval(function(){
+        reload();
+    }, 1000);
+});
+</script>
+<style type="text/css">
+	#tinymcediv tbody td{
+			padding: 0px;
+			border-left: none;
+	}
+</style>	
+	<style type="text/css">	
+		.alert_wrapper {
+			z-index: 6000;
+			position:fixed;
+			text-align: center;
+			width: 350px;
+			color: #fff;
+			font-size: 11px;
+			top: 0px;
+			left: 35%;
+			display:none;
+		}
+		.alert_success {
+			border-bottom: #dce6cf 1px solid;
+			border-left: #dce6cf 1px solid;
+			padding-bottom: 5px;
+			padding-left: 8px;
+			padding-right: 8px;
+			background: #faffe6;
+			color: #000;
+			border-top: #dce6cf 1px solid;
+			border-right: #dce6cf 1px solid;
+			padding-top: 5px;
+			-webkit-border-bottom-left-radius: 5px;
+			-webkit-border-bottom-right-radius: 5px;
+			-moz-border-radius-bottomleft: 5px;
+			-moz-border-radius-bottomright: 5px;
+		}
+		.alert_error {
+			border-bottom: #cc0000 1px solid;
+			border-left: #cc0000 1px solid;
+			padding-bottom: 5px;
+			padding-left: 8px;
+			padding-right: 8px;
+			background: #de6276;
+			border-top: #cc0000 1px solid;
+			border-right: #cc0000 1px solid;
+			padding-top: 5px;
+			-webkit-border-bottom-left-radius: 5px;
+			-webkit-border-bottom-right-radius: 5px;
+			-moz-border-radius-bottomleft: 5px;
+			-moz-border-radius-bottomright: 5px;
+		}
+		.alert_info {
+			border-bottom: #dce6cf 1px solid;
+			border-left: #dce6cf 1px solid;
+			padding-bottom: 5px;
+			padding-left: 8px;
+			padding-right: 8px;
+			background: #ffff88;
+			color: #000;
+			border-top: #dce6cf 1px solid;
+			border-right: #dce6cf 1px solid;
+			padding-top: 5px;
+			-webkit-border-bottom-left-radius: 5px;
+			-webkit-border-bottom-right-radius: 5px;
+			-moz-border-radius-bottomleft: 5px;
+			-moz-border-radius-bottomright: 5px
+		}
+		.alert_loading {
+			border-bottom: #dce6cf 1px solid;
+			border-left: #dce6cf 1px solid;
+			padding-bottom: 5px;
+			padding-left: 8px;
+			padding-right: 8px;
+			background: #ffffff;
+			color: #000;
+			border-top: #dce6cf 1px solid;
+			border-right: #dce6cf 1px solid;
+			padding-top: 5px;
+			-webkit-border-bottom-left-radius: 5px;
+			-webkit-border-bottom-right-radius: 5px;
+			-moz-border-radius-bottomleft: 5px;
+			-moz-border-radius-bottomright: 5px
+		}
+	</style>
+	</head>
+<body class="lock">
+   <link href="css/responsive/style.css" rel="stylesheet">
+   <link href="css/responsive/style-responsive.css" rel="stylesheet">
+	<div class="lock-header">
+		<!-- BEGIN LOGO -->
+		<a class="center" id="logo" href="./">
+		<div class="">
+				
+				</div>
+		</a>
+				<font color="#FFFFFF" face="MS PGothic" size="3">&#1589;&#1601;&#1581;&#1607; &#1608;&#1585;&#1608;&#1583;</font><!-- END LOGO --></div>
+   <form action="$(link-login-only)" method="POST" name="login">
+	<div class="login-wrap">
+		<div class="twsh single-size red">
+			<div style="direction:rtl"></div>
+			<div style="height:10px"></div>
+			<div style="padding-bottom:10px;margin-left:10px;margin-right:10px"><font size="+1" face="Tahoma, Geneva, sans-serif" color="#666666">
+				$(if login-by == 'trial')
+				<span lang="fa">خوش آمدید کاربر موقت </span> 
+				$(elif login-by != 'mac')
+				<span lang="fa">خوش امدید کاربر $(username)</span>
+				$(endif)
+				</div>
+			<div style="direction:rtl"></div>
+			<div style="padding-bottom:10px;margin-left:10px;margin-right:10px"><font size="+1" face="Tahoma, Geneva, sans-serif" color="#666666">
+				<span lang="fa">آیپی شما:</span> 
+				<span lang="fa">$(ip)</span>
+				</div>
+				
+				
+		</div>
+		<div class="twsh double-size green">
+			$(if session-time-left)
+			<div style="direction:rtl"></div>
+			<div style="height:10px"></div>
+			<div style="padding-bottom:10px;margin-left:10px;margin-right:10px"><font size="+1" face="Tahoma, Geneva, sans-serif" color="#666666">
+				<span lang="fa">مدت زمان حضور شما:</span> 
+				<div id="up_time"></div>
+				</div>
+				<div style="direction:rtl"></div>
+				<div style="padding-bottom:10px;margin-left:5px;margin-right:5px"><font size="+1" face="Tahoma, Geneva, sans-serif" color="#666666">
+					<span lang="fa">زمان باقی مانده:</span> 
+					<div id="left_time"></div>
+					</div>
+					$(else)
+					<div style="direction:rtl"></div>
+					<div style="height:50px"></div>
+					<div style="padding-bottom:10px;margin-left:5px;margin-right:5px"><font size="+1" face="Tahoma, Geneva, sans-serif" color="#666666">
+						<span lang="fa">مدت زمان حضور شما:</span> 
+						<div id="up_time"></div>
+						</div>
+					
+					$(endif)
+				
+			
+
+				
+
+		</div>
+		<div class="twsh double-size yellow">
+			<div style="direction:rtl"></div>
+			<div style="height:10px"></div>
+			<div style="padding-bottom:10px;margin-left:5px;margin-right:5px"><font size="+1" face="Tahoma, Geneva, sans-serif" color="#666666">
+				<span lang="fa">میزان دانلود شما:</span> 
+				<div id="download_size"></div>
+				</div>
+				<div style="direction:rtl"></div>
+				<div style="padding-bottom:20px;margin-left:5px;margin-right:5px"><font size="+1" face="Tahoma, Geneva, sans-serif" color="#666666">
+					<span lang="fa">میزان آپلود شما:</span> 
+					<div id="upload_size"></div>
+					</div>
+
+				
+		</div>
+		<div class="twsh double-size blue">
+			<img border="0" src="img/ico-web.png" width="150" height="150"></div>
+		<div class="twsh double-size navy-blue ">
+				<img border="0" src="img/ico-name.png" width="200" height="108"></div>
+		<div class="twsh single-size orange">
+			$(if login-by-mac != 'yes')
+		
+			
+			<div style="direction:rtl"></div>
+			<div style="height:55px"></div>
+			<div style="padding-bottom:00px;margin-left:10px;margin-right:10px"><font size="+1" face="Tahoma, Geneva, sans-serif" color="#666666">
+					<div style="direction:rtl"></div>
+					<div style="height:0px"></div>
+					<div style="padding-bottom:ل0px;margin-left:ل0px;margin-right:ل0px"><font size="+1" face="Tahoma, Geneva, sans-serif" color="#666666">
+					<button type="button" onclick="location.href='logout.html'">خروج</button>	
+				</div>
+			</div>
+			$(endif)
+
+		</div>
+		
+		</form>
+	<div class="login-footer">
+			<div class="forgot-hint pull-left" style="width: 305px; height: 99px">
+				<br />
+				<p><font color="#FFFFFF" size="2">
+				<span lang="fa">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#1608;&#1585;&#1688;&#1606; <a href="http://www.farbodsolat.ir/">1.0</a> 
+				&#1583;&#1585;&#1740;&#1575;&#1601;&#1578; &#1570;&#1662;&#1583;&#1740;&#1578; &#1575;&#1586; &#1587;&#1575;&#1740;&#1578; </span>
+				<a href="http://www.farbodsolat.ir/">farbodsolat.ir</a></font></div>
+		</div>
+	</div>
+<script>$('html').attr('style','background-color: #393939')</script>
+
+</body>
+
+</html>

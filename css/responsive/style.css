@@ -1,0 +1,111 @@
+/* login page */
+body.lock {
+    background: none repeat scroll 0% 0% #393939;
+    height: 100%;
+    display: block;
+}
+.login-wrap {
+    width: 800px;
+    margin: 5% auto 0;
+    color: #fff;
+    text-align: center;
+
+}
+
+.login-wrap .twsh {
+    height: 150px;
+    float: right;
+    margin: 0 10px 10px 0;
+}
+
+.login-wrap .double-size {
+    width: 310px;
+}
+
+.login-wrap .single-size {
+    width: 150px;
+}
+
+.login-wrap .red {
+    background: #e8687f;
+}
+.login-wrap .green {
+    background: #0CA389;
+}
+.login-wrap .yellow {
+    background: #f5c147;
+}
+.login-wrap .terques {
+    background: #38bec9;
+}
+.login-wrap .navy-blue {
+    background: #5f7cb4;
+}
+.login-wrap .orange {
+    background: #F37B53;
+}
+.login-wrap .blue {
+    background: #00ACD6;;
+}
+.login-wrap .purple {
+    background: #af5ec5;
+}
+
+.login-btn, .login-btn:hover {
+    background: none;
+    font-size: 28px;
+    margin-top: 45px;
+    border: none;
+    box-shadow: none;
+    color: #fff!important;
+}
+
+.login-btn i {
+    font-size: 22px !important;
+    padding-top: 0 !important;
+    display: inline !important;
+}
+
+.login-wrap .single-size a.social-link, .login-wrap .double-size a.social-link {
+    margin-top: 45px;
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.login-wrap .single-size a.social-link i , .login-wrap .double-size a.social-link i{
+    font-size: 20px;
+    display: block;
+    padding-top: 0;
+    padding-bottom: 10px;
+}
+
+.login-footer {
+    width: 100%;
+    display: inline-block;
+}
+
+.remember-hint input[type="checkbox"]{
+    margin-top: -2px;
+}
+
+.forgot-hint a{
+    color: #fff;
+    margin-left: 10px;
+}
+
+.single-size i {
+    font-size: 80px;
+    display: block;
+    padding-top: 30px;
+}
+form input{
+    margin-top: 60px;
+}
+.captchaimg{
+    margin-top: 55px;
+}
+.lock-header {
+    margin-top: 5%;
+    text-align: center;
+}
